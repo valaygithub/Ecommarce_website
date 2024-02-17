@@ -1,0 +1,99 @@
+{% block 'main' %} {% load static %}
+<html>
+  <head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+  </head>
+  <body>
+    <!--registration page start-->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-4 shadow mt-1 p-4 mx-auto">
+          <h2 class="text-center text-primary">Registration Form</h2>
+          {% if errmsg %}
+          <div class="alert alert-danger">{{errmsg}}</div>
+          {% endif %}
+          <form class="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >First Name:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="sname"
+                id="input5"
+                placeholder="Enter your First Name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Last Name:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="lname"
+                id="input6"
+                placeholder="Enter your Last Name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Username:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="uname"
+                id="input1"
+                placeholder="enter your email/mobile"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Password:</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="pwd"
+                id="input3"
+                placeholder="enter your password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Confirm password:</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="cpwd"
+                id="input4"
+                placeholder="confirm password"
+              />
+            </div>
+            <div class="mb-3">
+              <input type="submit" class="btn btn-primary" value="register" />
+              Already user?<a href="/login" style="text-decoration: none"
+                >Login</a
+              >
+            </div>
+            {% if success %}
+            <div class="alert alert-success">{{success}}</div>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--Registation page end-->
+    <script
+      type="text/javascript"
+      src="{% static 'asset/js/bootstrap.min.js' %}"
+    ></script>
+  </body>
+</html>
+{% endblock 'main' %}

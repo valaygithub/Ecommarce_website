@@ -1,0 +1,208 @@
+{% extends 'base.html' %} {% block 'main' %} {% load static %}
+<html>
+  <head>
+    <title>Cakes</title>
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="container bg-secondary">
+      <!--banner start-->
+      <div class="row">
+        <div class="col-md-12 mt-2 ms-2 one">
+          <div
+            id="carouselExampleDark"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="1500">
+                <a href="#">
+                  <img
+                    src="{% static 'asset/images/banner2.jpg' %}"
+                    class="d-block w-100 rounded-4"
+                    alt="..."
+                /></a>
+                <div class="carousel-caption d-none d-md-block"></div>
+              </div>
+              <div class="carousel-item" data-bs-interval="1500">
+                <a href="#"
+                  ><img
+                    src="{% static 'asset/images/banner3.webp' %}"
+                    class="d-block w-100 rounded-4"
+                    alt="..."
+                /></a>
+                <div class="carousel-caption d-none d-md-block"></div>
+              </div>
+              <div class="carousel-item" data-bs-interval="1500">
+                <a href="#">
+                  <img
+                    src=" {% static 'asset/images/banner1.webp' %}"
+                    class="d-block w-100 rounded-4"
+                    alt="..."
+                /></a>
+                <div class="carousel-caption d-none d-md-block"></div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--banner end 2nd row-->
+
+      <!--3rd row start-->
+
+      <div class="row">
+        <div class="col-md-12 mt-2 ms-5 bg-left two">
+          <a href="/catfilter/1">
+            <img
+              src="{% static 'asset/images/Desk_Icons_Birthday_19jul.webp' %}"
+              class="rounded im"
+              alt="..."
+            />
+          </a>
+
+          <a href="/catfilter/2">
+            <img
+              src="{% static 'asset/images/Desk_Icons_Anniversary_19jul.webp' %}"
+              class="rounded im"
+              alt="..."
+            />
+          </a>
+
+          <a href="/catfilter/3"
+            ><img
+              src="{% static 'asset\images\Desk_Icons_Rakhi International_20jul.webp' %}"
+              class="rounded im"
+              alt="..."
+          /></a>
+
+          <a href="/catfilter/4"
+            ><img
+              src="{% static 'asset/images/Desk_Icons_Unique-Gifts_19jul.webp' %}"
+              class="rounded im"
+              alt="..."
+          /></a>
+
+          <a href="/catfilter/5"
+            ><img
+              src="{% static 'asset/images/Icons_For-Him_17apr.jpg' %}"
+              class="rounded im"
+          /></a>
+
+          <a href="/catfilter/6"
+            ><img
+              src="{% static 'asset/images/Icons_For-Her_17apr.webp' %}"
+              class="rounded im"
+          /></a>
+        </div>
+      </div>
+      <!--filter-->
+
+      <h3 class="mt-5" align="center" style="color: yellow">
+        Celebrate Occasions with India's #1 Online Gift Store
+      </h3>
+      <p align="center" style="color: yellow">
+        Thoughtfully curated 139,821 Gift Ideas. Get 2-Hour Delivery & Free
+        Shipping in India.
+      </p>
+
+      <div class="row mt-2 bg-white">
+        <div class="col-mg-12 mt-2">
+          <br />
+          <b>Sort by:</b>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" class="anchor cr in"><h6>Recommended</h6></a
+          >&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" class="anchor cr in"><h6>New</h6></a
+          >&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="/sort/0" class="anchor cr in"><h6>Price:low to high</h6></a
+          >&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="/sort/1" class="anchor cr in"><h6>Price:High to low</h6></a>
+        </div>
+      </div>
+
+      <!--filter end-->
+      <div class="row mt-2 p-2 clearfix">
+        {% for x in products %}
+        <div class="col-md-2 mt-2 ms-4">
+          <div style="width: 18rem">
+            <img
+              src="{{x.pimage.url}}"
+              class="img-thumbnail"
+              alt="..."
+              style="width: 70%"
+            />
+
+            <p class="anchor cr">{{x.name}}</p>
+            <h5 class="anchor cr">{{x.price}}</h5>
+            {% if x.category == 1 %}
+            <p class="card-text"></p>
+            {% elif x.category == 2 %}
+            <p class="card-text"></p>
+            {% elif x.category == 3 %}
+            <p class="card-text"></p>
+            {% elif x.category == 4 %}
+            <p class="card-text"></p>
+            {% elif x.category == 5 %}
+            <p class="card-text"></p>
+            {% else %}
+            <p class="card-text"></p>
+            {% endif %}
+
+            <a href="/productdetail/{{x.id}}"
+              ><button type="button" value="see detail" class="btn btn-warning">
+                See detail
+              </button></a
+            >
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock 'main' %}

@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      {% csrf_token %}
+      <div class="row mt-5">
+        <div class="col-md-4 shadow mt-2 p-4 mx-auto">
+          <h2 class="text-center text-primary">Login Form</h2>
+          {% if errmsg %}
+          <div class="alert alert-danger">{{errmsg}}</div>
+          {% endif %}
+          <form class="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >User Name:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Input1"
+                name="uname"
+                placeholder="enter your username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Password:</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="Input2"
+                name="pwd"
+                placeholder="enter your password"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="submit"
+                class="btn btn-primary form-control"
+                value="Login"
+              />
+              <a href="/forgot_pass.html" style="text-decoration: none"
+                >Forgotten password?</a
+              >
+            </div>
+            <div class="mb-3">
+              <a href="/register" class="btn btn-success form-control"
+                >Create new account</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--login form end-->
+    <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
+  </body>
+</html>

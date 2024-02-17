@@ -1,0 +1,30 @@
+const request = require("request");
+
+const convertCurrency = async (fromCurrency, toCurrency, amount) => {
+  const apiUrl = "https://api.exchangeratesapi.io/latest";
+  const params = {
+    base: fromCurrency,
+    symbols: toCurrency,
+  };
+  const response = await request.get(apiUrl, { params });
+
+  if (response.statusCode === 200) {
+    const data = await response.json();
+    const rate = data["rates"][toCurrency];
+    return amount * rate;
+  } else {
+    return null;
+  }
+};
+
+const main = async () => {
+  const amount = 100;
+  const fromCurrency = "USD";
+  const toCurrency = "EUR";
+  const convertedAmount = await convertCurrency(fromCurrency, toCurrency, amount);
+  console.log(
+    `${amount} ${fromCurrency} is equal to ${convertedAmount} ${toCurrency}`
+  );
+};
+
+main();

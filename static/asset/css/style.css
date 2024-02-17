@@ -1,0 +1,21 @@
+.anchor {
+  text-decoration: none;
+}
+.ma {
+  margin: auto;
+}
+
+.cr {
+  color: black;
+}
+.in {
+  display: inline-block;
+}
+
+.in:hover {
+  color: #fff;
+  background-color: green;
+}
+.im:hover {
+  transform: scale(1.05);
+}

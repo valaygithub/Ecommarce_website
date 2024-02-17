@@ -1,0 +1,89 @@
+{% load static %}
+<html>
+  <head>
+    <title>Cakes</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" />
+    
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container bg-secondary">
+      <div class="row">
+        <div class="col-12 one">
+          <nav class="navbar bg-warning img-thumbnail">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2 mt-2"
+                  type="search"
+                  placeholder="search flowers, cakes, gift, etc"
+                  aria-label="Search"
+                  style="width: 400px"
+                />
+                <a href="search.html" class="mt-4"
+                  ><i class="bi bi-search"></i></a
+                >&nbsp;&nbsp;
+              </form>
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic mixed styles example"
+              >
+                <a href=" {% url 'apphome' %}"
+                  ><button type="button" class="btn btn-success">
+                    Home
+                  </button></a
+                >
+
+                <a href="/order"
+                  ><button type="button" class="btn btn-info">
+                    my order
+                  </button></a
+                >
+                <a href="contact"
+                  ><button type="button" class="btn btn-success">
+                    contact us
+                  </button></a
+                >
+                <a href="faqs"
+                  ><button type="button" class="btn btn-danger">FAQs</button></a
+                >
+                <a href="cart"
+                  ><button type="button" class="btn btn-success">
+                    cart
+                  </button></a
+                >
+                {% if user.is_authenticated %}
+                <a href="logout"
+                  ><button type="button" class="btn btn-danger">
+                    logout
+                  </button></a
+                >
+
+                {% else %}
+                <a href="login"
+                  ><button type="button" class="btn btn-danger">
+                    login
+                  </button></a
+                >
+                <a href="register">
+                  <button type="button" class="btn btn-light">
+                    register
+                  </button></a
+                >
+                {% endif %}
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!---nav bar end-->
+    </div>
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
